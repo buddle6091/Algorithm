@@ -11,6 +11,20 @@ const binarySearch = (arr, target, start, end) => {
   else return binarySearch(arr, target, mid + 1, end);
 };
 
+/* 2. 이진 탐색 (반복문) */
+const binarySearch2 = (arr, target, start, end) => {
+  while (start <= end) {
+    let mid = parseInt((start + end) / 2);
+    // 찾은 경우 중간점 인덱스 반환
+    if (arr[mid] == target) return mid;
+    // 중간점의 값보다 찾고자 하는 값이작은 경우 왼쪽을 확인
+    else if (arr[mid] > target) end = mid - 1;
+    // 중간점의 값보다 찾고자 하는 값이 큰 경우 오른쪽
+    else start = mid + 1;
+  }
+  return -1;
+};
+
 // n (원소의 개수), target (찾고자 하는 값)
 let n = 10;
 let target = 7;
